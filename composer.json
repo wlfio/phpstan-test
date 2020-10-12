@@ -1,0 +1,17 @@
+{
+    "name": "wlfio/phpstan-test",
+    "authors": [
+        {
+            "name": "wolfgang",
+            "email": "wolfgang@wlf.io"
+        }
+    ],
+    "require": {
+        "php": "7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "WlfIO\\PHPStanTest\\": "src"
+        }
+    }
+}

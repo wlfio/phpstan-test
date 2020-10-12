@@ -1,0 +1,26 @@
+name: Code Quality
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  phpstan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        uses: php-actions/composer@v2
+        with:
+          args: --ignore-platform-reqs
+          ssh_key: ${{ secrets.BUILD_SSH_KEY }}
+          ssh_key_pub: ${{ secrets.BUILD_SSH_PUB }}
+
+      - name: PHPStan Analysis
+        uses: php-actions/phpstan@v1
+        with:
+          error_format: github
+
